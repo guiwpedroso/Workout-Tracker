@@ -344,7 +344,7 @@ function Dashboard({ onNavigate }) {
       <aside className="sidebar">
         <div className="logo">
           <img
-            src="/logo-wourkout.png"
+            src="/logo-workout.png"
             alt="Workout"
             className="logo-image"
           />
