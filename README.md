@@ -1,16 +1,50 @@
-# React + Vite
+# 💪 Workout Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web para gerenciamento e acompanhamento de treinos, desenvolvida com **React + Firebase**.
 
-Currently, two official plugins are available:
+O Workout Tracker permite organizar treinos, registrar séries e cargas, acompanhar o histórico e visualizar a evolução do desempenho ao longo do tempo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Funcionalidades
 
-## React Compiler
+* 🔐 Cadastro e login de usuários
+* 🏋️ Criação e gerenciamento de treinos
+* ▶️ Treino em andamento
+* ✅ Registro de séries concluídas
+* ⚖️ Controle de carga por série
+* ⏱️ Cronômetro de descanso
+* 📋 Histórico de treinos
+* 📈 Acompanhamento da evolução de carga
+* 📊 Cálculo de volume total
+* 🏆 Registro de maiores cargas
+* 🔥 Controle de sequência de treinos
+* 👤 Configurações do usuário
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tecnologias
 
-## Expanding the ESLint configuration
+* React
+* JavaScript
+* Vite
+* Firebase Authentication
+* Firebase Firestore
+* CSS
+* Git e GitHub
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## 📈 Evolução
+
+O sistema registra as cargas utilizadas durante os treinos e utiliza esses dados para apresentar:
+
+* Maior carga
+* Volume acumulado
+* Evolução percentual
+* Histórico de séries
+* Desempenho por exercício
+
+
+
+## 👨‍💻 Autor
+
+**Guilherme Pedroso**
+
+* GitHub: https://github.com/guiwpedroso
+* LinkedIn: https://www.linkedin.com/in/guilhermepedroso-/
