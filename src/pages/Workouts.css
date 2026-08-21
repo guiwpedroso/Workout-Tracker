@@ -1,0 +1,532 @@
+.workouts-page {
+  min-height: 100vh;
+  padding: 40px 45px;
+  background: #0b0d10;
+  color: #fff;
+}
+
+.workouts-header {
+  max-width: 1250px;
+  margin: 0 auto 35px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.back-button {
+  display: block;
+  margin-bottom: 25px;
+  border: none;
+  background: transparent;
+  color: #777d87;
+  cursor: pointer;
+  padding: 0;
+  transition: 0.2s;
+}
+
+.back-button:hover {
+  color: #38bdf8;
+}
+
+.workouts-header h1 {
+  font-size: 34px;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+
+.workouts-header p {
+  color: #777d87;
+  font-size: 14px;
+}
+
+.new-workout-button {
+  border: none;
+  border-radius: 10px;
+  padding: 13px 18px;
+  background: #38bdf8;
+  color: #0b0d10;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s;
+}
+
+.new-workout-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.workout-form,
+.saved-workouts {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.workout-form {
+  padding: 28px;
+  margin-bottom: 35px;
+  border: 1px solid #1d2025;
+  border-radius: 16px;
+  background: #111419;
+}
+
+.form-header,
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-header {
+  margin-bottom: 28px;
+}
+
+.form-header h2,
+.section-title h2 {
+  font-size: 21px;
+}
+
+.close-button {
+  border: none;
+  background: #1b1e23;
+  color: #777d87;
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.close-button:hover {
+  color: #fff;
+  background: #242830;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #a4a9b2;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #272b32;
+  border-radius: 9px;
+  outline: none;
+  background: #0b0d10;
+  color: #fff;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #38bdf8;
+}
+
+.form-group input::placeholder {
+  color: #555b65;
+}
+
+.exercise-form {
+  padding: 20px;
+  margin-top: 25px;
+  border: 1px solid #1d2025;
+  border-radius: 12px;
+  background: #0e1014;
+}
+
+.exercise-form h3,
+.added-exercises h3 {
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 2fr 0.7fr 0.9fr 0.9fr;
+  gap: 12px;
+}
+
+.form-grid .form-group {
+  margin-bottom: 0;
+}
+
+.add-exercise-button {
+  margin-top: 15px;
+  border: 1px solid #30353d;
+  border-radius: 9px;
+  padding: 11px 15px;
+  background: transparent;
+  color: #38bdf8;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.add-exercise-button:hover {
+  background: #171a20;
+}
+
+.added-exercises {
+  margin-top: 25px;
+}
+
+.added-exercise {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid #1d2025;
+}
+
+.added-exercise strong,
+.added-exercise span {
+  display: block;
+}
+
+.added-exercise span {
+  color: #777d87;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.exercise-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.exercise-actions > strong {
+  color: #38bdf8;
+}
+
+.exercise-actions button {
+  border: none;
+  background: transparent;
+  color: #777d87;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.exercise-actions button:hover {
+  color: #ff6b6b;
+}
+
+.save-workout-button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px;
+  border: none;
+  border-radius: 9px;
+  background: #38bdf8;
+  color: #0b0d10;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.save-workout-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.workout-count {
+  color: #777d87;
+  font-size: 12px;
+}
+
+.empty-state {
+  margin-top: 20px;
+  padding: 70px 20px;
+  border: 1px dashed #292d34;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.empty-state > div {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.empty-state h3 {
+  margin-bottom: 7px;
+}
+
+.empty-state p {
+  color: #777d87;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.workouts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.workout-item {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid #1d2025;
+  border-radius: 15px;
+  background: #111419;
+  transition: 0.2s;
+}
+
+.workout-item:hover {
+  border-color: #2a2f37;
+  transform: translateY(-2px);
+}
+
+.workout-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.workout-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #38bdf8;
+  color: #0b0d10;
+  font-weight: 900;
+}
+
+.delete-button {
+  border: none;
+  background: transparent;
+  color: #555b65;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delete-button:hover {
+  color: #ff6b6b;
+}
+
+.workout-item h3 {
+  margin-top: 5px;
+  font-size: 18px;
+  overflow-wrap: anywhere;
+}
+
+.workout-item > p {
+  color: #777d87;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.workout-exercises {
+  margin-top: 20px;
+}
+
+.workout-exercises div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #1d2025;
+  font-size: 12px;
+}
+
+.workout-exercises span {
+  color: #a4a9b2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workout-exercises strong {
+  color: #777d87;
+  white-space: nowrap;
+}
+
+.start-workout-button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  border: 1px solid #30353d;
+  border-radius: 9px;
+  background: transparent;
+  color: #38bdf8;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.start-workout-button:hover {
+  background: #171a20;
+}
+
+/* TABLET */
+@media (max-width: 1100px) {
+  .workouts-page {
+    padding: 30px 25px;
+  }
+
+  .workouts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .form-grid {
+    grid-template-columns: 1.5fr 0.8fr 0.8fr 0.8fr;
+  }
+}
+
+/* TABLET MENOR */
+@media (max-width: 900px) {
+  .workouts-page {
+    padding: 25px 18px;
+  }
+
+  .workouts-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .workouts-header h1 {
+    font-size: 30px;
+  }
+
+  .new-workout-button {
+    width: 100%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .workouts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CELULAR */
+@media (max-width: 600px) {
+  .workouts-page {
+    padding: 20px 14px;
+  }
+
+  .workouts-header {
+    margin-bottom: 25px;
+  }
+
+  .workouts-header h1 {
+    font-size: 27px;
+  }
+
+  .workouts-header p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .back-button {
+    margin-bottom: 20px;
+  }
+
+  .workout-form {
+    padding: 18px;
+    margin-bottom: 25px;
+  }
+
+  .form-header {
+    margin-bottom: 22px;
+  }
+
+  .form-header h2 {
+    font-size: 18px;
+  }
+
+  .exercise-form {
+    padding: 15px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-grid .form-group {
+    margin-bottom: 15px;
+  }
+
+  .added-exercise {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .exercise-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .section-title {
+    align-items: flex-end;
+    gap: 15px;
+  }
+
+  .section-title h2 {
+    font-size: 18px;
+  }
+
+  .workout-count {
+    white-space: nowrap;
+  }
+
+  .workouts-grid {
+    gap: 14px;
+  }
+
+  .workout-item {
+    padding: 18px;
+  }
+
+  .workout-exercises div {
+    gap: 8px;
+  }
+
+  .empty-state {
+    padding: 50px 18px;
+  }
+}
+
+/* CELULARES MUITO PEQUENOS */
+@media (max-width: 380px) {
+  .workouts-page {
+    padding: 18px 10px;
+  }
+
+  .workout-form {
+    padding: 15px;
+  }
+
+  .workout-item {
+    padding: 16px;
+  }
+
+  .workout-exercises div {
+    font-size: 11px;
+  }
+}
