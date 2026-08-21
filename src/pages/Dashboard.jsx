@@ -5,7 +5,6 @@ import {
   query,
   where,
 } from "firebase/firestore";
-
 import { auth, db } from "../firebase/config";
 import "./Dashboard.css";
 
@@ -113,7 +112,8 @@ function Dashboard({ onNavigate }) {
 
   const totalVolume = useMemo(() => {
     return history.reduce(
-      (total, workout) => total + getWorkoutVolume(workout),
+      (total, workout) =>
+        total + getWorkoutVolume(workout),
       0
     );
   }, [history]);
@@ -122,9 +122,7 @@ function Dashboard({ onNavigate }) {
     const stats = {};
 
     history.forEach((workout) => {
-      if (!Array.isArray(workout.exercises)) {
-        return;
-      }
+      if (!Array.isArray(workout.exercises)) return;
 
       workout.exercises.forEach((exercise) => {
         const name = exercise?.name;
@@ -178,7 +176,6 @@ function Dashboard({ onNavigate }) {
         name: "Nenhum exercício",
         maxWeight: 0,
         growth: 0,
-        history: [],
       };
     }
 
@@ -244,7 +241,6 @@ function Dashboard({ onNavigate }) {
       name: exercise.name,
       maxWeight: exercise.maxWeight,
       growth,
-      history: weights,
     };
   }, [exerciseStats, history]);
 
@@ -255,6 +251,7 @@ function Dashboard({ onNavigate }) {
       ...new Set(
         history.map((workout) => {
           const date = getWorkoutDate(workout);
+
           return date.toLocaleDateString("en-CA");
         })
       ),
@@ -303,7 +300,8 @@ function Dashboard({ onNavigate }) {
     yesterday.setDate(yesterday.getDate() - 1);
 
     if (
-      date.toDateString() === yesterday.toDateString()
+      date.toDateString() ===
+      yesterday.toDateString()
     ) {
       return "Ontem";
     }
@@ -330,15 +328,6 @@ function Dashboard({ onNavigate }) {
     )} kg`;
   }
 
-  function getChartHeight(weight) {
-    if (!featuredExercise.maxWeight) return 0;
-
-    return Math.max(
-      8,
-      (weight / featuredExercise.maxWeight) * 100
-    );
-  }
-
   return (
     <div className="dashboard">
       <aside className="sidebar">
@@ -349,7 +338,7 @@ function Dashboard({ onNavigate }) {
             className="logo-image"
           />
 
-          <span className="logo-text">WORKOUT</span>
+          <span>WORKOUT</span>
         </div>
 
         <nav>
@@ -400,12 +389,21 @@ function Dashboard({ onNavigate }) {
       <main className="main-content">
         <header className="topbar">
           <div>
-            <p className="greeting">Boa tarde 👋</p>
-            <h1>Bora treinar, Guilherme?</h1>
+            <p className="greeting">
+              Boa tarde 👋
+            </p>
+
+            <h1>
+              Bora treinar, Guilherme?
+            </h1>
           </div>
 
           <div className="profile">
-            <div className="avatar">G</div>
+            <img
+              src="/profile.png"
+              alt="Foto de perfil"
+              className="profile-image"
+            />
 
             <div>
               <strong>Guilherme</strong>
@@ -423,6 +421,7 @@ function Dashboard({ onNavigate }) {
             <section className="stats">
               <div className="stat-card">
                 <span>🔥</span>
+
                 <div>
                   <p>Sequência</p>
                   <h2>{streak} dias</h2>
@@ -431,6 +430,7 @@ function Dashboard({ onNavigate }) {
 
               <div className="stat-card">
                 <span>🏋️</span>
+
                 <div>
                   <p>Treinos este mês</p>
                   <h2>{workoutsThisMonth}</h2>
@@ -439,12 +439,14 @@ function Dashboard({ onNavigate }) {
 
               <div className="stat-card">
                 <span>📊</span>
+
                 <div>
                   <p>Volume total</p>
+
                   <h2>
-                    {Number(totalVolume).toLocaleString(
-                      "pt-BR"
-                    )}{" "}
+                    {Number(
+                      totalVolume
+                    ).toLocaleString("pt-BR")}{" "}
                     kg
                   </h2>
                 </div>
@@ -452,6 +454,7 @@ function Dashboard({ onNavigate }) {
 
               <div className="stat-card">
                 <span>🏆</span>
+
                 <div>
                   <p>Exercícios registrados</p>
                   <h2>{personalRecords}</h2>
@@ -471,7 +474,8 @@ function Dashboard({ onNavigate }) {
 
                     <h2>
                       {recentWorkouts.length > 0
-                        ? recentWorkouts[0].workoutName ||
+                        ? recentWorkouts[0]
+                            .workoutName ||
                           recentWorkouts[0].name ||
                           "Treino"
                         : "Nenhum treino realizado"}
@@ -479,7 +483,9 @@ function Dashboard({ onNavigate }) {
                   </div>
 
                   <span className="workout-number">
-                    {recentWorkouts.length > 0 ? "✓" : "A"}
+                    {recentWorkouts.length > 0
+                      ? "✓"
+                      : "A"}
                   </span>
                 </div>
 
@@ -491,7 +497,11 @@ function Dashboard({ onNavigate }) {
                         let weight = 0;
                         let seriesText = "";
 
-                        if (Array.isArray(exercise.sets)) {
+                        if (
+                          Array.isArray(
+                            exercise.sets
+                          )
+                        ) {
                           const completedSets =
                             exercise.sets.filter(
                               (set) =>
@@ -503,8 +513,11 @@ function Dashboard({ onNavigate }) {
                             );
 
                           weight = Math.max(
-                            ...completedSets.map((set) =>
-                              Number(set.weight || 0)
+                            ...completedSets.map(
+                              (set) =>
+                                Number(
+                                  set.weight || 0
+                                )
                             ),
                             0
                           );
@@ -515,9 +528,7 @@ function Dashboard({ onNavigate }) {
                             exercise.weight || 0
                           );
 
-                          seriesText = `${exercise.sets || 0} séries × ${
-                            exercise.reps || 0
-                          } reps`;
+                          seriesText = `${exercise.sets || 0} séries × ${exercise.reps || 0} reps`;
                         }
 
                         return (
@@ -535,21 +546,25 @@ function Dashboard({ onNavigate }) {
                               </span>
                             </div>
 
-                            <b>{weight} kg</b>
+                            <b>
+                              {weight} kg
+                            </b>
                           </div>
                         );
                       })}
                   </div>
                 ) : (
                   <p className="dashboard-empty-text">
-                    Faça seu primeiro treino para começar
-                    a acompanhar sua evolução.
+                    Faça seu primeiro treino para
+                    começar a acompanhar sua evolução.
                   </p>
                 )}
 
                 <button
                   className="start-button"
-                  onClick={() => onNavigate("workouts")}
+                  onClick={() =>
+                    onNavigate("workouts")
+                  }
                 >
                   {recentWorkouts.length > 0
                     ? "COMEÇAR NOVO TREINO →"
@@ -564,101 +579,33 @@ function Dashboard({ onNavigate }) {
                       EVOLUÇÃO
                     </span>
 
-                    <h2>{featuredExercise.name}</h2>
+                    <h2>
+                      {featuredExercise.name}
+                    </h2>
                   </div>
 
                   <span className="growth">
-                    {featuredExercise.growth >= 0 ? "+" : ""}
+                    {featuredExercise.growth >= 0
+                      ? "+"
+                      : ""}
                     {featuredExercise.growth}%
                   </span>
                 </div>
 
-                {featuredExercise.history.length > 0 ? (
-                  <div className="dashboard-chart">
-                    <div className="chart-y-labels">
-                      <span>
-                        {featuredExercise.maxWeight} kg
-                      </span>
+                <div className="progress-content">
+                  <span>
+                    MAIOR CARGA
+                  </span>
 
-                      <span>
-                        {Math.round(
-                          featuredExercise.maxWeight * 0.75
-                        )}{" "}
-                        kg
-                      </span>
-
-                      <span>
-                        {Math.round(
-                          featuredExercise.maxWeight * 0.5
-                        )}{" "}
-                        kg
-                      </span>
-
-                      <span>0 kg</span>
-                    </div>
-
-                    <div className="chart-main">
-                      <div className="chart-grid">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </div>
-
-                      <div className="chart-bars">
-                        {featuredExercise.history
-                          .slice(-8)
-                          .map((item, index) => (
-                            <div
-                              className="chart-bar-wrapper"
-                              key={`${item.date.getTime()}-${index}`}
-                            >
-                              <div
-                                className="chart-bar"
-                                style={{
-                                  height: `${getChartHeight(
-                                    item.weight
-                                  )}%`,
-                                }}
-                                title={`${item.weight} kg`}
-                              ></div>
-
-                              <span>
-                                {item.date.toLocaleDateString(
-                                  "pt-BR",
-                                  {
-                                    day: "2-digit",
-                                    month: "2-digit",
-                                  }
-                                )}
-                              </span>
-                            </div>
-                          ))}
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="chart-empty">
-                    <span>📈</span>
-                    <p>
-                      Complete alguns treinos para ver sua
-                      evolução.
-                    </p>
-                  </div>
-                )}
-
-                <div className="progress-footer">
-                  <div>
-                    <span>MAIOR CARGA</span>
-
-                    <strong>
-                      {featuredExercise.maxWeight} kg
-                    </strong>
-                  </div>
+                  <strong>
+                    {featuredExercise.maxWeight} kg
+                  </strong>
 
                   <button
                     className="see-all"
-                    onClick={() => onNavigate("evolution")}
+                    onClick={() =>
+                      onNavigate("evolution")
+                    }
                   >
                     Ver evolução →
                   </button>
@@ -678,7 +625,9 @@ function Dashboard({ onNavigate }) {
 
                 <button
                   className="see-all"
-                  onClick={() => onNavigate("history")}
+                  onClick={() =>
+                    onNavigate("history")
+                  }
                 >
                   Ver todos →
                 </button>
@@ -690,39 +639,41 @@ function Dashboard({ onNavigate }) {
                 </div>
               ) : (
                 <div className="history-list">
-                  {recentWorkouts.map((workout, index) => (
-                    <div
-                      className="history-item"
-                      key={workout.id}
-                    >
-                      <div className="history-icon">
-                        {index === 0
-                          ? "💪"
-                          : index === 1
-                          ? "🏋️"
-                          : "🦵"}
-                      </div>
+                  {recentWorkouts.map(
+                    (workout, index) => (
+                      <div
+                        className="history-item"
+                        key={workout.id}
+                      >
+                        <div className="history-icon">
+                          {index === 0
+                            ? "💪"
+                            : index === 1
+                            ? "🏋️"
+                            : "🦵"}
+                        </div>
 
-                      <div className="history-info">
+                        <div className="history-info">
+                          <strong>
+                            {workout.workoutName ||
+                              workout.name ||
+                              "Treino"}
+                          </strong>
+
+                          <span>
+                            {formatDate(workout)} •{" "}
+                            {formatTime(workout)}
+                          </span>
+                        </div>
+
                         <strong>
-                          {workout.workoutName ||
-                            workout.name ||
-                            "Treino"}
+                          {formatVolume(
+                            getWorkoutVolume(workout)
+                          )}
                         </strong>
-
-                        <span>
-                          {formatDate(workout)} •{" "}
-                          {formatTime(workout)}
-                        </span>
                       </div>
-
-                      <strong>
-                        {formatVolume(
-                          getWorkoutVolume(workout)
-                        )}
-                      </strong>
-                    </div>
-                  ))}
+                    )
+                  )}
                 </div>
               )}
             </section>

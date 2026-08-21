@@ -21,6 +21,9 @@
   gap: 10px;
   padding: 0 8px 35px;
   color: #fff;
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 2px;
 }
 
 .logo-image {
@@ -31,10 +34,9 @@
   flex-shrink: 0;
 }
 
-.logo-text {
-  font-size: 17px;
-  font-weight: 900;
-  letter-spacing: 2px;
+.logo span {
+  display: block;
+  color: #fff;
 }
 
 nav {
@@ -44,7 +46,6 @@ nav {
 }
 
 .nav-item {
-  width: 100%;
   border: none;
   background: transparent;
   color: #777d87;
@@ -53,9 +54,6 @@ nav {
   border-radius: 10px;
   font-size: 14px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 12px;
   transition: 0.2s;
 }
 
@@ -78,8 +76,6 @@ nav {
   flex: 1;
   padding: 38px 45px;
   max-width: 1500px;
-  margin: 0 auto;
-  width: 100%;
 }
 
 .topbar {
@@ -106,6 +102,19 @@ nav {
   gap: 12px;
 }
 
+.profile-image {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  max-width: 42px;
+  max-height: 42px;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
 .profile strong,
 .profile span {
   display: block;
@@ -119,17 +128,6 @@ nav {
   color: #777d87;
   font-size: 12px;
   margin-top: 3px;
-}
-
-.avatar {
-  width: 42px;
-  height: 42px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background: #242830;
-  font-weight: 700;
 }
 
 .stats {
@@ -247,135 +245,24 @@ nav {
 
 .start-button:hover {
   opacity: 0.9;
-  transform: translateY(-1px);
 }
 
-.dashboard-empty-text {
-  color: #777d87;
-  font-size: 13px;
-  line-height: 1.6;
-  margin-top: 25px;
-}
-
-.dashboard-chart {
-  display: flex;
-  gap: 12px;
-  height: 190px;
-  margin-top: 25px;
-}
-
-.chart-y-labels {
-  height: 160px;
+.progress-content {
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  color: #555b65;
-  font-size: 9px;
-  text-align: right;
-  padding-bottom: 20px;
-}
-
-.chart-main {
-  flex: 1;
-  position: relative;
-  height: 190px;
-}
-
-.chart-grid {
-  position: absolute;
-  inset: 0 0 25px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.chart-grid span {
-  width: 100%;
-  height: 1px;
-  background: #1d2025;
-}
-
-.chart-bars {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-around;
   gap: 8px;
-  padding: 0 5px;
 }
 
-.chart-bar-wrapper {
-  height: 100%;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  min-width: 15px;
-}
-
-.chart-bar {
-  width: min(22px, 70%);
-  min-height: 8px;
-  background: #38bdf8;
-  border-radius: 5px 5px 2px 2px;
-  transition: 0.25s;
-  position: relative;
-  z-index: 2;
-}
-
-.chart-bar:hover {
-  filter: brightness(1.15);
-  transform: scaleX(1.08);
-}
-
-.chart-bar-wrapper span {
-  color: #555b65;
-  font-size: 8px;
-  margin-top: 7px;
-  white-space: nowrap;
-}
-
-.chart-empty {
-  height: 190px;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #555b65;
-  text-align: center;
-}
-
-.chart-empty span {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.chart-empty p {
-  font-size: 12px;
-}
-
-.progress-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 20px;
-  padding-top: 18px;
-  border-top: 1px solid #1d2025;
-}
-
-.progress-footer > div span {
-  display: block;
+.progress-content > span {
   color: #777d87;
-  font-size: 9px;
-  letter-spacing: 1px;
-  margin-bottom: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
 }
 
-.progress-footer strong {
-  font-size: 22px;
+.progress-content strong {
+  font-size: 30px;
 }
 
 .growth {
@@ -385,15 +272,13 @@ nav {
 }
 
 .see-all {
+  align-self: flex-start;
   background: transparent;
   border: none;
   color: #38bdf8;
   cursor: pointer;
-  font-size: 12px;
-}
-
-.see-all:hover {
-  text-decoration: underline;
+  padding: 0;
+  margin-top: 10px;
 }
 
 .recent-section {
@@ -412,10 +297,6 @@ nav {
   border-bottom: 1px solid #1d2025;
 }
 
-.history-item > strong {
-  font-size: 13px;
-}
-
 .history-icon {
   width: 40px;
   height: 40px;
@@ -424,6 +305,7 @@ nav {
   justify-content: center;
   background: #1a1d22;
   border-radius: 10px;
+  flex-shrink: 0;
 }
 
 .history-info {
@@ -441,22 +323,30 @@ nav {
   margin-top: 4px;
 }
 
-.dashboard-empty {
-  margin-top: 20px;
-  padding: 30px;
-  text-align: center;
-  color: #777d87;
-  border: 1px dashed #292d34;
-  border-radius: 10px;
-}
-
 .dashboard-loading {
-  padding: 60px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
   color: #777d87;
 }
 
-@media (max-width: 1100px) {
+.dashboard-empty,
+.dashboard-empty-text {
+  color: #777d87;
+  font-size: 13px;
+}
+
+.dashboard-empty {
+  padding: 30px 0 10px;
+}
+
+.dashboard-empty-text {
+  margin-top: 25px;
+  line-height: 1.6;
+}
+
+@media (max-width: 1000px) {
   .stats {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -485,23 +375,5 @@ nav {
 
   .stats {
     grid-template-columns: 1fr;
-  }
-
-  .workout-card,
-  .progress-card,
-  .recent-section {
-    padding: 18px;
-  }
-
-  .dashboard-chart {
-    height: 170px;
-  }
-
-  .chart-y-labels {
-    height: 140px;
-  }
-
-  .chart-bar-wrapper span {
-    font-size: 7px;
   }
 }

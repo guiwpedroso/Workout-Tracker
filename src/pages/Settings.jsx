@@ -17,7 +17,10 @@ function Settings({ onNavigate }) {
 
   useEffect(() => {
     async function loadProfile() {
-      if (!auth.currentUser) return;
+      if (!auth.currentUser) {
+        setLoading(false);
+        return;
+      }
 
       try {
         setEmail(auth.currentUser.email || "");
@@ -35,10 +38,12 @@ function Settings({ onNavigate }) {
 
           setName(data.name || "");
           setGoal(data.goal || "Hipertrofia");
-          setWeight(data.weight || "");
-          setHeight(data.height || "");
+          setWeight(data.weight ?? "");
+          setHeight(data.height ?? "");
         } else {
-          setName(auth.currentUser.displayName || "");
+          setName(
+            auth.currentUser.displayName || ""
+          );
         }
       } catch (error) {
         console.error(
@@ -54,7 +59,10 @@ function Settings({ onNavigate }) {
   }, []);
 
   async function saveSettings() {
-    if (!auth.currentUser) return;
+    if (!auth.currentUser) {
+      alert("Usuário não autenticado.");
+      return;
+    }
 
     if (!name.trim()) {
       alert("Digite seu nome.");
@@ -86,7 +94,9 @@ function Settings({ onNavigate }) {
         error
       );
 
-      alert("Não foi possível salvar as configurações.");
+      alert(
+        "Não foi possível salvar as configurações."
+      );
     } finally {
       setSaving(false);
     }
@@ -149,11 +159,11 @@ function Settings({ onNavigate }) {
               <h2>Informações pessoais</h2>
             </div>
 
-            <div className="settings-avatar">
-              {name
-                ? name.charAt(0).toUpperCase()
-                : "G"}
-            </div>
+            <img
+              src="/profile.png"
+              alt="Foto de perfil"
+              className="settings-avatar"
+            />
           </div>
 
           <div className="settings-grid">
